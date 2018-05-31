@@ -1,0 +1,19 @@
+{
+  "name": "altered-base",
+  "version": "1.0.0",
+  "description": "Convert a number string of unlimited size from one base to another with infinite precision.",
+  "main": "convert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ken-oyWs2vlG/altered-base.git"
+  },
+  "author": "Ken Sedgwick (kensedgwick@hotmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ken-oyWs2vlG/altered-base/issues"
+  },
+  "homepage": "https://github.com/ken-oyWs2vlG/altered-base#readme"
+}
