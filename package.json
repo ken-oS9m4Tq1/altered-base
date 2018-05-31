@@ -1,6 +1,6 @@
 {
   "name": "altered-base",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert a number string of unlimited size from one base to another with infinite precision.",
   "main": "convert.js",
   "scripts": {
