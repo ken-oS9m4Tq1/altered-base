@@ -16,6 +16,6 @@ npm i altered-base
 const ab = require('altered-base');
 const say = console.log;
 
-let num = ab.convert('abcdef', 16, 10);
-say(num); // 11259375
+let num = ab.convert('4f9414295fef9242d8a49762e72af14', 16, 36);
+say(num);
 ```
