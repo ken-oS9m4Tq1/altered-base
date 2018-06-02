@@ -56,6 +56,13 @@ function convert(str, fromBase, toBase) {
   return toString(arr);
 }
 
+/* Determine the numerical value of a character and express it as an integer array in a given base.
+**
+** @param {number} code - The UTF16 code unit of the character.
+** @param {number} fromBase - The base of the character (used to check for invalid characters).
+** @param {number} toBase - The desired base of the integer array.
+** @return {number[]} - The integer array.
+*/
 function fromCharCode(code, fromBase, toBase) {
   let char = -1;
   for (let i = 0; i < fromBase; i++) {
@@ -77,7 +84,7 @@ function fromCharCode(code, fromBase, toBase) {
 ** @param {number} base - The desired base of the integer array.
 ** @return {number[]} - The integer array.
 */
-let fromNumber = function(num, base) {
+function fromNumber(num, base) {
   if (num == 0) return [0];
 
   let arr = [];
