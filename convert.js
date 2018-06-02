@@ -43,9 +43,12 @@ let consts = {
 }
 
 function convert(str, fromBase, toBase) {
+  if (fromBase < 2 || consts.alphabet.length < fromBase) throw new Error('base out of range');
+  if (toBase < 2 || consts.alphabet.length < toBase) throw new Error('base out of range');
+
   let arr = [0];
   for (let i = 0; i < str.length; i++) {
-    let char = fromNumber(consts.alphabet.indexOf(str.charAt(i)), toBase);
+    let char = fromCharCode(str.charCodeAt(i), toBase);
     mltNum(arr, fromBase);
     addArr(arr, char);
     normalize(arr, toBase);
@@ -53,8 +56,22 @@ function convert(str, fromBase, toBase) {
   return toString(arr);
 }
 
+function fromCharCode(code, base) {
+  let char = -1;
+  for (let i = 0; i < consts.alphabet.length; i++) {
+    if (code == consts.alphabet[i].charCodeAt(0)) {
+      char = i;
+      break;
+    }
+  }
+
+  if (char < 0) throw new Error('invalid character detected');
+
+  return fromNumber(char, base);
+}
+
 /* Express a number as an integer array in a given base.
-** The number must be a positive integer.
+** The number must be a nonzero integer.
 **
 ** @param {number} num - A positive integer in number format.
 ** @param {number} base - The desired base of the integer array.
@@ -129,6 +146,5 @@ function toString(arr) {
 
 
 
-
 module.exports.convert = convert;
-  
+module.exports.consts = consts;
