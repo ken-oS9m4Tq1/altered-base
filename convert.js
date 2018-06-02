@@ -48,7 +48,7 @@ function convert(str, fromBase, toBase) {
 
   let arr = [0];
   for (let i = 0; i < str.length; i++) {
-    let char = fromCharCode(str.charCodeAt(i), toBase);
+    let char = fromCharCode(str.charCodeAt(i), fromBase, toBase);
     mltNum(arr, fromBase);
     addArr(arr, char);
     normalize(arr, toBase);
@@ -56,9 +56,9 @@ function convert(str, fromBase, toBase) {
   return toString(arr);
 }
 
-function fromCharCode(code, base) {
+function fromCharCode(code, fromBase, toBase) {
   let char = -1;
-  for (let i = 0; i < consts.alphabet.length; i++) {
+  for (let i = 0; i < fromBase; i++) {
     if (code == consts.alphabet[i].charCodeAt(0)) {
       char = i;
       break;
@@ -67,7 +67,7 @@ function fromCharCode(code, base) {
 
   if (char < 0) throw new Error('invalid character detected');
 
-  return fromNumber(char, base);
+  return fromNumber(char, toBase);
 }
 
 /* Express a number as an integer array in a given base.
