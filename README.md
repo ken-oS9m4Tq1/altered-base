@@ -1,4 +1,4 @@
-# altered-base
+# <img src="./logo.png" width="200" /> altered-base
 
 Convert a number in string representation to another base.  There is no limit to the size of the number and no loss of precision.  The valid range for bases is limited only by the available character set, which can be extended to any size.
 
