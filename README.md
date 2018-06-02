@@ -1,8 +1,6 @@
 # altered-base
 
-Convert a number in string representation to another base.  There is no limit to the size of the number and no loss of precision.  The valid range for bases is limited only by the available character set, defined in consts.alphabet.
-
-Positive integers only.
+Convert a number in string representation to another base.  There is no limit to the size of the number and no loss of precision.  The valid range for bases is limited only by the available character set, which can be extended to any size.
 
 ## install
 
@@ -16,6 +14,26 @@ npm i altered-base
 const ab = require('altered-base');
 const say = console.log;
 
-let num = ab.convert('4f9414295fef9242d8a49762e72af14', 16, 36);
-say(num);
+// Parameters
+let numberString = '4f9414295fef9242d8a49762e72af14';     // {string} a positive integer in any base
+let fromBase = 16;                                        // {number} the current base of the integer string
+let toBase = 36;                                          // {number} the base to which the string will be converted
+
+let convertedString = ab.convert(numberString, fromBase, toBase);
+say(convertedString);                                     // {string} the integer expressed in the requested base
 ```
+
+## details
+
+The function `convert` only accepts positive integer strings and is case sensitive.
+
+The default alphabet [0-9a-z] allows for conversions up to and including base 36.  However, the alphabet can be customized arbitrarily, in which case the maximum base will automatically become to the new alphabet length.  For example, the following custom alphabet allows for conversions up to and including base 96.
+
+```javascript
+let customAlphabet = Array.from('0123456789abcdefghijklmnopqrstuvwxyz)!@#$%^&*(ABCDEFGHIJKLMNOPQRSTUVWXYZ-=[]\\;\',./_+{}|:"<>?`~ \n');
+ab.consts.alphabet = customAlphabet;
+
+say(ab.convert('53db8f23f77b045da14055015c0799eeb045451d1c233580', 16, customAlphabet.length));
+```
+
+The index of each character in the `consts.alphabet` array is taken to be the character's numerical value.
