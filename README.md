@@ -26,18 +26,22 @@ say(convertedString);                                    // {string} the integer
 
 ## details
 
-The function `convert` only accepts positive integer strings and is case sensitive.
+The function `convert` only accepts positive integer strings and is case insensitive by default.  If necessary, case sensitivity can be enabled by setting `consts.caseSensitive` to `true`.
 
 The default alphabet [0-9a-z] allows for conversions up to and including base 36.  However, the alphabet can be customized arbitrarily, in which case the maximum base will automatically become the new alphabet length.  This can be accomplished by editing the array `consts.alphabet` that defines the current alphabet.  Each element of `consts.alphabet` should be a single character; the index of each element is taken to be the character's numerical value.
 
 For example, the following custom alphabet allows for conversions up to and including base 96.
 
 ```javascript
+ab.consts.caseSensitive = true;
+
 let customAlphabet = Array.from('0123456789abcdefghijklmnopqrstuvwxyz)!@#$%^&*(ABCDEFGHIJKLMNOPQRSTUVWXYZ-=[]\\;\',./_+{}|:"<>?`~ \n');
 ab.consts.alphabet = customAlphabet;
 
 say(ab.convert('49[/6+m%\\oWlI3UrtUIVF]l)Q-iDA^R&)l,xUyS:\\*huuQ11_T:p+MlsS`Hsu.0`87?3.,*ig1\'V<`En', 94, customAlphabet.length));
 ```
+
+
 
 ## license
 

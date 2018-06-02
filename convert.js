@@ -66,7 +66,8 @@ function convert(str, fromBase, toBase) {
 function fromCharCode(code, fromBase, toBase) {
   let char = -1;
   for (let i = 0; i < fromBase; i++) {
-    if (code == consts.alphabet[i].charCodeAt(0)) {
+    let okCode = consts.alphabet[i].charCodeAt(0);
+    if (code == okCode || (!consts.caseSensitive && code == changeCase(okCode))) {
       char = i;
       break;
     }
@@ -75,6 +76,16 @@ function fromCharCode(code, fromBase, toBase) {
   if (char < 0) throw new Error('invalid character detected');
 
   return fromNumber(char, toBase);
+}
+
+/* Change the code of an upper case letter to the code of its lower case equivalent, and vice versa.
+** If the code does not refer to a letter it is returned unaltered.
+**
+*/
+function changeCase(code) {
+  if (97 <= code && code <= 122) return code - 32;
+  else if (65 <= code && code <= 90) return code + 32;
+  else return code;
 }
 
 /* Express a number as an integer array in a given base.
