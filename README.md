@@ -28,7 +28,7 @@ say(convertedString);                                    // {string} the integer
 
 The function `convert` only accepts positive integer strings and is case sensitive.
 
-The default alphabet [0-9a-z] allows for conversions up to and including base 36.  However, the alphabet can be customized arbitrarily, in which case the maximum base will automatically become to the new alphabet length.  This can be accomplished by editing the array `consts.alphabet` that defines the current alphabet.  The index of each character in the `consts.alphabet` array is taken to be the character's numerical value.
+The default alphabet [0-9a-z] allows for conversions up to and including base 36.  However, the alphabet can be customized arbitrarily, in which case the maximum base will automatically become the new alphabet length.  This can be accomplished by editing the array `consts.alphabet` that defines the current alphabet.  The index of each character in the `consts.alphabet` array is taken to be the character's numerical value.
 
 For example, the following custom alphabet allows for conversions up to and including base 96.
 
