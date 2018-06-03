@@ -43,6 +43,7 @@ let consts = {
 }
 
 function convert(str, fromBase, toBase) {
+  if (typeof str != 'string' || !Number.isInteger(fromBase) || !Number.isInteger(toBase)) throw new Error('data type mismatch');
   if (fromBase < 2 || consts.alphabet.length < fromBase) throw new Error('base out of range');
   if (toBase < 2 || consts.alphabet.length < toBase) throw new Error('base out of range');
 
