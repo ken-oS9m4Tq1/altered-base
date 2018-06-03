@@ -1,6 +1,6 @@
 {
   "name": "altered-base",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Convert a number string of unlimited size from one base to another with infinite precision.",
   "main": "convert.js",
   "scripts": {
@@ -10,6 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/ken-oyWs2vlG/altered-base.git"
   },
+  "keywords": [
+    "Convert",
+    "Number",
+    "String",
+    "Base",
+    "Radix",
+    "Any base",
+    "Unlimited size",
+    "Infinite precision"
+  ],
   "author": "Ken Sedgwick (kensedgwick@hotmail.com)",
   "license": "MIT",
   "bugs": {
